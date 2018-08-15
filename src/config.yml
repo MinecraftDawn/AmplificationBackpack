@@ -1,0 +1,8 @@
+name: AmplificationBackpack
+version: 0.1.0
+main: amplificationBackpack.AmplificationBackpack
+depend: [ItemNBTAPI]
+
+commands:
+  amplificationbackpack:
+    aliases: ab
