@@ -1,4 +1,4 @@
 package amplificationBackpack.commands;
 
-public class cmdAmplificationBackpack {
+public class CmdAmplificationBackpack {
 }
