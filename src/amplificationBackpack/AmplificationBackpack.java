@@ -16,8 +16,10 @@ public class AmplificationBackpack extends JavaPlugin {
 
     @Override
     public void onDisable() {
-//        for(Player p :Bukkit.getOnlinePlayers()){
-//
-//        }
+        for(Player p :Bukkit.getOnlinePlayers()){
+            if(p.getOpenInventory().getTitle().equals("擴增背包")){
+                p.getOpenInventory().close();
+            }
+        }
     }
 }
