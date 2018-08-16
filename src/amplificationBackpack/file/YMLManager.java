@@ -3,6 +3,8 @@ package amplificationBackpack.file;
 import amplificationBackpack.AmplificationBackpack;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
@@ -42,7 +44,7 @@ public class YMLManager {
         return instance;
     }
 
-    private Boolean loadData() {
+    public Boolean loadData() {
         try {
             data.load(file);
             return true;
@@ -67,11 +69,27 @@ public class YMLManager {
     public static String str2DotStr(String... args) {
         String str = "";
 
-        for (int i = 0; i < args.length - 1; i++) {
-            str += args[i] + ".";
+        if (args.length > 1) {
+            for (int i = 0; i < args.length - 1; i++) {
+                str += args[i] + ".";
+            }
         }
+
         str += args[args.length - 1];
 
         return str;
+    }
+
+    public void setBackpack(Player p, ItemStack item){
+        data.set(str2DotStr(p.getUniqueId().toString(),"名稱"),"擴增背包");
+        data.set(str2DotStr(p.getUniqueId().toString(),"格數"),54);
+        String str;
+        for (int i = 0; i < 1; i++) {
+            data.set(str2DotStr(p.getUniqueId().toString(),"物品",Integer.toString(i),"Item"),SwitchItemStr.Item2Str(item));
+            data.set(str2DotStr(p.getUniqueId().toString(),"物品",Integer.toString(i),"Name"),"");
+            data.set(str2DotStr(p.getUniqueId().toString(),"物品",Integer.toString(i),"耐久"),"");
+        }
+
+        saveData();
     }
 }
