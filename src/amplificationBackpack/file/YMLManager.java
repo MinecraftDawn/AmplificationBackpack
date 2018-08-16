@@ -1,9 +1,11 @@
 package amplificationBackpack.file;
 
 import amplificationBackpack.AmplificationBackpack;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
@@ -80,16 +82,39 @@ public class YMLManager {
         return str;
     }
 
-    public void setBackpack(Player p, ItemStack item){
-        data.set(str2DotStr(p.getUniqueId().toString(),"名稱"),"擴增背包");
-        data.set(str2DotStr(p.getUniqueId().toString(),"格數"),54);
-        String str;
-        for (int i = 0; i < 1; i++) {
-            data.set(str2DotStr(p.getUniqueId().toString(),"物品",Integer.toString(i),"Item"),SwitchItemStr.Item2Str(item));
-            data.set(str2DotStr(p.getUniqueId().toString(),"物品",Integer.toString(i),"Name"),"");
-            data.set(str2DotStr(p.getUniqueId().toString(),"物品",Integer.toString(i),"耐久"),"");
+    public void setBackpack(Player p, Inventory inv) {
+        ItemStack item;
+
+        data.set(str2DotStr(p.getUniqueId().toString(), "名稱"), "擴增背包");
+        data.set(str2DotStr(p.getUniqueId().toString(), "格數"), inv.getSize());
+
+        for (int i = 0; i < inv.getSize(); i++) {
+            item = inv.getItem(i);
+
+            data.set(str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Item"), SwitchItemStr.Item2Str(item));
+            data.set(str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Name"), "");
+            data.set(str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "耐久"), "");
         }
 
         saveData();
+        Bukkit.broadcastMessage("aaaaaaaaaaaaaaaaaaaa");
+    }
+
+    public void openBackpack(Player p) {
+        if(! data.isSet(p.getUniqueId().toString())){
+            Inventory inv = Bukkit.createInventory(null,54,"擴增背包");
+            p.openInventory(inv);
+            return;
+        }
+
+        Inventory inv = Bukkit.createInventory(null,54,"擴增背包");
+
+        int size = data.getInt(str2DotStr(p.getUniqueId().toString(),"格數"));
+        String str;
+        for (int i = 0; i < size; i++) {
+            str = data.getString(str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Item"));
+            inv.setItem(i,SwitchItemStr.Str2Item(str));
+        }
+        p.openInventory(inv);
     }
 }
