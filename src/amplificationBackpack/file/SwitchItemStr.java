@@ -1,6 +1,7 @@
 package amplificationBackpack.file;
 
 import org.bukkit.Material;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.io.BukkitObjectInputStream;
 import org.bukkit.util.io.BukkitObjectOutputStream;
@@ -46,4 +47,5 @@ public class SwitchItemStr {
             return new ItemStack(Material.AIR, 1);
         }
     }
+
 }

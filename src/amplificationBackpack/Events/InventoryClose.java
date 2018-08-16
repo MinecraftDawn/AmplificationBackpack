@@ -13,6 +13,5 @@ public class InventoryClose implements Listener {
 
         Player p = (Player) e.getPlayer();
 
-
     }
 }

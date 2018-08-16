@@ -19,13 +19,13 @@ public class YMLManager {
     public YamlConfiguration data;
 
     //建構子(Constructor)
-    private YMLManager(){
+    private YMLManager() {
         plugin = AmplificationBackpack.plugin;
 
-        file = new File(plugin.getDataFolder(),"Backpack.yml");
+        file = new File(plugin.getDataFolder(), "Backpack.yml");
 
-        if(! file.exists()){
-            plugin.saveResource("Backpack.yml",false);
+        if (!file.exists()) {
+            plugin.saveResource("Backpack.yml", false);
         }
 
         data = new YamlConfiguration();
@@ -35,14 +35,14 @@ public class YMLManager {
 
     }
 
-    public static YMLManager getInstance(){
-        if(instance == null){
+    public static YMLManager getInstance() {
+        if (instance == null) {
             instance = new YMLManager();
         }
         return instance;
     }
 
-    private Boolean loadData(){
+    private Boolean loadData() {
         try {
             data.load(file);
             return true;
@@ -51,10 +51,10 @@ public class YMLManager {
         } catch (InvalidConfigurationException e) {
             e.printStackTrace();
         }
-        return  false;
+        return false;
     }
 
-    private Boolean saveData(){
+    private Boolean saveData() {
         try {
             data.save(file);
             return true;
@@ -64,5 +64,14 @@ public class YMLManager {
         return false;
     }
 
+    public static String str2DotStr(String... args) {
+        String str = "";
 
+        for (int i = 0; i < args.length - 1; i++) {
+            str += args[i] + ".";
+        }
+        str += args[args.length - 1];
+
+        return str;
+    }
 }
