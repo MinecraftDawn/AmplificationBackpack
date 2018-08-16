@@ -5,12 +5,17 @@ import amplificationBackpack.commands.CmdAmplificationBackpack;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class AmplificationBackpack extends JavaPlugin {
 
+    public static Plugin plugin;
+
     @Override
     public void onEnable() {
+        plugin = this;
+
         Bukkit.getPluginCommand("bp").setExecutor((CommandExecutor) new CmdAmplificationBackpack());
         Bukkit.getPluginManager().registerEvents(new InventoryClose(),this);
     }
