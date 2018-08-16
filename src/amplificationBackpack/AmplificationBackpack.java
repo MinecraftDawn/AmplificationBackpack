@@ -2,6 +2,7 @@ package amplificationBackpack;
 
 import amplificationBackpack.Events.InventoryClose;
 import amplificationBackpack.commands.CmdAmplificationBackpack;
+import amplificationBackpack.file.YMLManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
@@ -16,8 +17,10 @@ public class AmplificationBackpack extends JavaPlugin {
     public void onEnable() {
         plugin = this;
 
-        Bukkit.getPluginCommand("bp").setExecutor((CommandExecutor) new CmdAmplificationBackpack());
+        Bukkit.getPluginCommand("amplificationbackpack").setExecutor((CommandExecutor) new CmdAmplificationBackpack());
         Bukkit.getPluginManager().registerEvents(new InventoryClose(),this);
+
+        YMLManager.getInstance();
     }
 
 

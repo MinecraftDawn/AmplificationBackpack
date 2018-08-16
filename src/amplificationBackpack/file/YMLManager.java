@@ -16,7 +16,7 @@ public class YMLManager {
 
     private File file;
 
-    private YamlConfiguration data;
+    public YamlConfiguration data;
 
     //建構子(Constructor)
     private YMLManager(){
@@ -24,9 +24,14 @@ public class YMLManager {
 
         file = new File(plugin.getDataFolder(),"Backpack.yml");
 
+        if(! file.exists()){
+            plugin.saveResource("Backpack.yml",false);
+        }
+
         data = new YamlConfiguration();
 
         loadData();
+        saveData();
 
     }
 
