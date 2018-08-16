@@ -17,6 +17,9 @@ public class SwitchItemStr {
 
             outStream.writeObject(item);
 
+            byteOutStream.close();
+            outStream.close();
+
             return byteOutStream.toString();
         } catch (IOException e) {
             e.printStackTrace();
@@ -30,6 +33,9 @@ public class SwitchItemStr {
             BukkitObjectInputStream inStream = new BukkitObjectInputStream(byteInStream);
 
             ItemStack item = (ItemStack) inStream.readObject();
+
+            byteInStream.close();
+            inStream.close();
 
             return item;
         } catch (IOException e) {
