@@ -97,7 +97,6 @@ public class YMLManager {
         }
 
         saveData();
-        Bukkit.broadcastMessage("aaaaaaaaaaaaaaaaaaaa");
     }
 
     public void openBackpack(Player p) {
