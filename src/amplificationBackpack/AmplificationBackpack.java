@@ -2,6 +2,7 @@ package amplificationBackpack;
 
 import amplificationBackpack.Events.InventoryClose;
 import amplificationBackpack.commands.CmdAmplificationBackpack;
+import amplificationBackpack.commands.CmdSortBackpack;
 import amplificationBackpack.file.BackpackManager;
 import amplificationBackpack.file.YMLManager;
 import org.bukkit.Bukkit;
@@ -20,6 +21,7 @@ public class AmplificationBackpack extends JavaPlugin {
         plugin = this;
 
         Bukkit.getPluginCommand("amplificationbackpack").setExecutor((CommandExecutor) new CmdAmplificationBackpack());
+        Bukkit.getPluginCommand("sortBackpack").setExecutor((CommandExecutor) new CmdSortBackpack());
         Bukkit.getPluginManager().registerEvents(new InventoryClose(), this);
     }
 

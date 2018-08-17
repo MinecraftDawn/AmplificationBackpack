@@ -25,11 +25,20 @@ public class BackpackManager {
         data.set(yml.str2DotStr(p.getUniqueId().toString(), "名稱"), "擴增背包");
         data.set(yml.str2DotStr(p.getUniqueId().toString(), "格數"), inv.getSize());
 
+
+        Map<Enchantment, Integer> ench;
+        List<String> enchName;
+
         for (int i = 0; i < inv.getSize(); i++) {
             item = inv.getItem(i);
 
-            Map<Enchantment, Integer> ench = item.getEnchantments();
-            List<String> enchName = new ArrayList<>();
+            try {
+                ench = item.getEnchantments();
+            }catch (Exception e){
+                ench = null;
+            }
+
+            enchName = new ArrayList<>();
 
             data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Item"), SwitchItemStr.Item2Str(item));
 

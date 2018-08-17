@@ -1,7 +1,6 @@
 package amplificationBackpack.commands;
 
 import amplificationBackpack.file.BackpackManager;
-import amplificationBackpack.file.YMLManager;
 import com.meowj.langutils.lang.LanguageHelper;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,6 +12,8 @@ public class CmdAmplificationBackpack implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if(! (sender instanceof Player)) return true;
+
         Player p = (Player) sender;
 
         if (args.length == 0) {
@@ -21,6 +22,6 @@ public class CmdAmplificationBackpack implements CommandExecutor {
             ItemStack item = p.getItemInHand();
             p.sendMessage(LanguageHelper.getItemDisplayName(item, "zh_tw"));
         }
-        return false;
+        return true;
     }
 }
