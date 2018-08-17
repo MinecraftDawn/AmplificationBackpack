@@ -10,9 +10,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 public class CmdAmplificationBackpack implements CommandExecutor {
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        YMLManager yml = YMLManager.getInstance();
         Player p = (Player) sender;
 
         if (args.length == 0) {
