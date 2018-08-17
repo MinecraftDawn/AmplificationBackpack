@@ -33,10 +33,10 @@ public class BackpackManager {
 
             data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Item"), SwitchItemStr.Item2Str(item));
 
-            if (item == null){
-                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Name"),null);
-                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "數量"),null);
-                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "耐久"),null);
+            if (item == null) {
+                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Name"), null);
+                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "數量"), null);
+                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "耐久"), null);
                 data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "附魔"), enchName);
                 continue;
             }
