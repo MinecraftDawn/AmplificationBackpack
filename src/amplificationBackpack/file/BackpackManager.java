@@ -41,7 +41,9 @@ public class BackpackManager {
         Inventory inv = Bukkit.createInventory(null,54,"擴增背包");
 
         int size = data.getInt(yml.str2DotStr(p.getUniqueId().toString(),"格數"));
+
         String str;
+
         for (int i = 0; i < size; i++) {
             str = data.getString(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Item"));
             inv.setItem(i,SwitchItemStr.Str2Item(str));

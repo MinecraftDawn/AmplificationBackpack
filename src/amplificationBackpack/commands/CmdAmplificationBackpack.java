@@ -15,14 +15,6 @@ public class CmdAmplificationBackpack implements CommandExecutor {
 
         if (args.length == 0) {
             p.openInventory(BackpackManager.getBackpack(p));
-//            yml.setBackpack(p, p.getItemInHand());
-//
-//            String s = yml.data.getString(p.getUniqueId().toString() + ".物品." + Integer.toString(0) + ".Item");
-//            p.sendMessage(s);
-//
-//            ItemStack item = SwitchItemStr.Str2Item(s);
-//
-//            p.getInventory().addItem(item);
         }
         return false;
     }
