@@ -12,6 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class AmplificationBackpack extends JavaPlugin {
 
+    //將此插件主Class給其他Class使用
     public static Plugin plugin;
 
     @Override

@@ -11,8 +11,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class SwitchItemStr {
+
+    //將物品轉換為字串形式
     public static String Item2Str(ItemStack item) {
         try {
+            //建立ByteArray及BukkitObject兩個輸出檔案流，並將物品寫出
             ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
             BukkitObjectOutputStream outStream = new BukkitObjectOutputStream(byteOutStream);
 
@@ -21,8 +24,10 @@ public class SwitchItemStr {
             byteOutStream.close();
             outStream.close();
 
+            //將ByteArray以Base64編碼後轉換為CharArray型態
             char[] chars = Base64Coder.encode(byteOutStream.toByteArray());
 
+            //將CharArray轉換為String型態
             String str = new String(chars);
 
             return str;
@@ -33,14 +38,19 @@ public class SwitchItemStr {
         }
     }
 
+    //將字串轉換為Item形式
     public static ItemStack Str2Item(String str) {
         try {
+            //將String轉換為CharArray型態
             char[] chars = str.toCharArray();
+            //將CharArray以Base64解碼後轉換為ByteArray型態
             byte[] bytes = Base64Coder.decode(chars);
 
+            //建立ByteArray及BukkitObject兩個輸入檔案流，並將物品寫入
             ByteArrayInputStream byteInStream = new ByteArrayInputStream(bytes);
             BukkitObjectInputStream inStream = new BukkitObjectInputStream(byteInStream);
 
+            //將檔案流以ItemStack方是讀入
             ItemStack item = (ItemStack) inStream.readObject();
 
             byteInStream.close();

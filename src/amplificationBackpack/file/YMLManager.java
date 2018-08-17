@@ -18,7 +18,7 @@ public class YMLManager {
 
     public YamlConfiguration data;
 
-    //建構子(Constructor)
+    //建構子(Constructor)，設定Backpack.yml檔案
     private YMLManager() {
         plugin = AmplificationBackpack.plugin;
 
@@ -35,13 +35,18 @@ public class YMLManager {
 
     }
 
+    //單例模式，只產生一個實例
     public static YMLManager getInstance() {
         if (instance == null) {
-            instance = new YMLManager();
+            synchronized (YMLManager.class){
+                instance = new YMLManager();
+            }
+
         }
         return instance;
     }
 
+    //讀取Backpack.yml檔案內容
     public Boolean loadData() {
         try {
             data.load(file);
@@ -54,6 +59,7 @@ public class YMLManager {
         return false;
     }
 
+    //儲存Backpack.yml檔案內容
     public Boolean saveData() {
         try {
             data.save(file);
@@ -64,6 +70,7 @@ public class YMLManager {
         return false;
     }
 
+    //將每個args之間插入"."，以符合yml索引方式
     public static String str2DotStr(String... args) {
         String str = "";
 

@@ -18,7 +18,7 @@ public class BackpackManager {
 
     private static YamlConfiguration data = yml.data;
 
-
+    //設定Backpack.yml檔案內容，並儲存
     public static void setBackpack(Player p, Inventory inv) {
         ItemStack item;
 
@@ -33,6 +33,7 @@ public class BackpackManager {
 
             data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Item"), SwitchItemStr.Item2Str(item));
 
+            //若該位置為空，清除檔案內容，只留Item欄位
             if (item == null) {
                 data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Name"), null);
                 data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "數量"), null);
@@ -54,8 +55,10 @@ public class BackpackManager {
         yml.saveData();
     }
 
+    //取得背包物品
     public static Inventory getBackpack(Player p) {
 
+        //若檔案內無該玩家物品，則創立空背包
         if (!data.isSet(p.getUniqueId().toString())) {
             Inventory inv = Bukkit.createInventory(null, 54, "擴增背包");
 

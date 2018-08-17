@@ -17,6 +17,7 @@ public class InventoryClose implements Listener {
 
         Inventory inv = e.getInventory();
 
+        //當玩家關閉擴增背包時，將擴增背包資料儲存於檔案內
         BackpackManager.setBackpack(p, inv);
     }
 }
