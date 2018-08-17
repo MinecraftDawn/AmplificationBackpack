@@ -1,5 +1,6 @@
 package amplificationBackpack.commands;
 
+import amplificationBackpack.file.BackpackManager;
 import amplificationBackpack.file.YMLManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,7 +14,7 @@ public class CmdAmplificationBackpack implements CommandExecutor {
         Player p = (Player) sender;
 
         if (args.length == 0) {
-            yml.openBackpack(p);
+            p.openInventory(BackpackManager.getBackpack(p));
 //            yml.setBackpack(p, p.getItemInHand());
 //
 //            String s = yml.data.getString(p.getUniqueId().toString() + ".物品." + Integer.toString(0) + ".Item");

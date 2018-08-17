@@ -2,6 +2,7 @@ package amplificationBackpack;
 
 import amplificationBackpack.Events.InventoryClose;
 import amplificationBackpack.commands.CmdAmplificationBackpack;
+import amplificationBackpack.file.BackpackManager;
 import amplificationBackpack.file.YMLManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
@@ -31,7 +32,7 @@ public class AmplificationBackpack extends JavaPlugin {
             if (p.getOpenInventory().getTitle().equals("擴增背包")) {
 
                 YMLManager yml = YMLManager.getInstance();
-                yml.setBackpack(p, p.getOpenInventory().getTopInventory());
+                BackpackManager.setBackpack(p, p.getOpenInventory().getTopInventory());
 
                 p.getOpenInventory().close();
             }

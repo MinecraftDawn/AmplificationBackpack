@@ -1,5 +1,6 @@
 package amplificationBackpack.Events;
 
+import amplificationBackpack.file.BackpackManager;
 import amplificationBackpack.file.YMLManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,6 +20,6 @@ public class InventoryClose implements Listener {
 
         Inventory inv = e.getInventory();
 
-        yml.setBackpack(p,inv);
+        BackpackManager.setBackpack(p,inv);
     }
 }
