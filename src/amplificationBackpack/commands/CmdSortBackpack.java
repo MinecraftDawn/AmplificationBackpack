@@ -1,5 +1,6 @@
 package amplificationBackpack.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -7,6 +8,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class CmdSortBackpack implements CommandExecutor {
 
@@ -16,21 +20,32 @@ public class CmdSortBackpack implements CommandExecutor {
 
         Player p = (Player) sender;
 
-        ItemStack[] item = new ItemStack[36];
-
         Inventory inv = p.getInventory();
 
+        List<ItemStack> items = new ArrayList<>();
+
         for (int i = 9; i < 36; i++) {
-            item[i] = inv.getItem(i);
+            if (inv.getItem(i) != null) {
+                items.add(inv.getItem(i));
+                Bukkit.broadcastMessage(inv.getItem(i).getDurability()+"");
+            }
             inv.setItem(i, new ItemStack(Material.AIR, 1));
         }
 
-        for (int i = 9; i < 36; i++) {
-            if (item[i] != null) {
-                inv.addItem(item[i]);
+        Collections.sort(items, new Comparator<ItemStack>() {
+            @Override
+            public int compare(ItemStack o1, ItemStack o2) {
+                if (o1.getDurability() + 0.0001 * o1.getTypeId() < o2.getDurability() + 0.0001 * o2.getTypeId()){
+                    return -1;
+                }else{
+                    return 1;
+                }
             }
-        }
+        });
 
+        for (ItemStack item : items) {
+            inv.addItem(item);
+        }
 
         return true;
     }
