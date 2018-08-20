@@ -9,8 +9,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class CmdSortBackpack implements CommandExecutor {
 
@@ -27,7 +29,7 @@ public class CmdSortBackpack implements CommandExecutor {
         for (int i = 9; i < 36; i++) {
             if (inv.getItem(i) != null) {
                 items.add(inv.getItem(i));
-                Bukkit.broadcastMessage(inv.getItem(i).getDurability()+"");
+                Bukkit.broadcastMessage(inv.getItem(i).getDurability() + "");
             }
             inv.setItem(i, new ItemStack(Material.AIR, 1));
         }
@@ -35,9 +37,9 @@ public class CmdSortBackpack implements CommandExecutor {
         Collections.sort(items, new Comparator<ItemStack>() {
             @Override
             public int compare(ItemStack o1, ItemStack o2) {
-                if (o1.getDurability() + 0.0001 * o1.getTypeId() < o2.getDurability() + 0.0001 * o2.getTypeId()){
+                if (o1.getDurability() + 0.0001 * o1.getTypeId() < o2.getDurability() + 0.0001 * o2.getTypeId()) {
                     return -1;
-                }else{
+                } else {
                     return 1;
                 }
             }

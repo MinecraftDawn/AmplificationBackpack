@@ -34,7 +34,7 @@ public class BackpackManager {
 
             try {
                 ench = item.getEnchantments();
-            }catch (Exception e){
+            } catch (Exception e) {
                 ench = null;
             }
 
