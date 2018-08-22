@@ -1,5 +1,7 @@
 package amplificationBackpack.commands;
 
+import amplificationBackpack.AmplificationBackpack;
+import amplificationBackpack.Events.RegisterInListener;
 import amplificationBackpack.file.BackpackManager;
 import com.meowj.langutils.lang.LanguageHelper;
 import org.bukkit.command.Command;
@@ -22,6 +24,8 @@ public class CmdAmplificationBackpack implements CommandExecutor {
         } else if (args.length == 1) {
             ItemStack item = p.getItemInHand();
             p.sendMessage(LanguageHelper.getItemDisplayName(item, "zh_tw"));
+        } else if (args.length == 2) {
+            RegisterInListener r = new RegisterInListener(AmplificationBackpack.plugin);
         }
         return true;
     }
