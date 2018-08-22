@@ -26,6 +26,8 @@ public class CmdAmplificationBackpack implements CommandExecutor {
             p.sendMessage(LanguageHelper.getItemDisplayName(item, "zh_tw"));
         } else if (args.length == 2) {
             RegisterInListener r = new RegisterInListener(AmplificationBackpack.plugin);
+        } else if (args.length == 3) {
+            RegisterInListener.unregister(AmplificationBackpack.plugin);
         }
         return true;
     }

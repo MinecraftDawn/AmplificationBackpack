@@ -6,7 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.Plugin;
 
-public class RegisterInListener implements Listener {
+public final class RegisterInListener implements Listener {
     public RegisterInListener(Plugin plugin){
         plugin.getServer().getPluginManager().registerEvents(this,plugin);
     }
@@ -14,5 +14,9 @@ public class RegisterInListener implements Listener {
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent e){
         Bukkit.broadcastMessage("註冊成功！");
+    }
+
+    public static void unregister(Plugin plugin){
+        PlayerMoveEvent.getHandlerList().unregister(plugin);
     }
 }
