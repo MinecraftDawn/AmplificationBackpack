@@ -21,13 +21,13 @@ public class CmdAmplificationBackpack implements CommandExecutor {
         if (args.length == 0) {
             p.openInventory(BackpackManager.getBackpack(p));
 
-        } else if (args.length == 1) {
-            ItemStack item = p.getItemInHand();
-            p.sendMessage(LanguageHelper.getItemDisplayName(item, "zh_tw"));
-        } else if (args.length == 2) {
-            RegisterInListener r = new RegisterInListener(AmplificationBackpack.plugin);
-        } else if (args.length == 3) {
-            RegisterInListener.unregister(AmplificationBackpack.plugin);
+//        } else if (args.length == 1) {
+//            ItemStack item = p.getItemInHand();
+//            p.sendMessage(LanguageHelper.getItemDisplayName(item, "zh_tw"));
+//        } else if (args.length == 2) {
+//            RegisterInListener r = new RegisterInListener(AmplificationBackpack.plugin);
+//        } else if (args.length == 3) {
+//            RegisterInListener.unregister(AmplificationBackpack.plugin);
         }
         return true;
     }
