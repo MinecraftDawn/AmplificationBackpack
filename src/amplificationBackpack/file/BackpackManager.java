@@ -22,6 +22,7 @@ public class BackpackManager {
     public static void setBackpack(Player p, Inventory inv) {
         ItemStack item;
 
+        //設定背包大小
         data.set(yml.str2DotStr(p.getUniqueId().toString(), "名稱"), "擴增背包");
         data.set(yml.str2DotStr(p.getUniqueId().toString(), "格數"), inv.getSize());
 
@@ -32,6 +33,7 @@ public class BackpackManager {
         for (int i = 0; i < inv.getSize(); i++) {
             item = inv.getItem(i);
 
+            //若取得附魔失敗，則表示該物品沒有附魔
             try {
                 ench = item.getEnchantments();
             } catch (Exception e) {
@@ -40,25 +42,25 @@ public class BackpackManager {
 
             enchName = new ArrayList<>();
 
-            data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Item"), SwitchItemStr.Item2Str(item));
-
-            //若該位置為空，清除檔案內容，只留Item欄位
+            //若該位置為空，清除檔案內容
             if (item == null) {
-                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Name"), null);
-                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "數量"), null);
-                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "耐久"), null);
-                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "附魔"), enchName);
+                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i)),null);
+
                 continue;
             }
 
+            //設定物品資料
+            data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Item"), SwitchItemStr.Item2Str(item));
             data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Name"), LanguageHelper.getItemDisplayName(item, "zh_tw"));
             data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "數量"), item.getAmount());
             data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "耐久"), item.getType().getMaxDurability());
 
+            //設定附魔資料
             for (Map.Entry<Enchantment, Integer> e : ench.entrySet()) {
                 enchName.add(LanguageHelper.getEnchantmentDisplayName(e, "zh_tw"));
             }
             data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "附魔"), enchName);
+
         }
 
         yml.saveData();
@@ -81,6 +83,12 @@ public class BackpackManager {
         String str;
 
         for (int i = 0; i < size; i++) {
+            //若該資料不存在，則跳過
+            if(!data.isSet(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i)))){
+                continue;
+            }
+
+            //將文字轉換成物品，並放入儲存欄位
             str = data.getString(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Item"));
             inv.setItem(i, SwitchItemStr.Str2Item(str));
         }
