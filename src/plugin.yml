@@ -1,10 +1,17 @@
 name: AmplificationBackpack
-version: 1.0.0
+version: 1.1.0
 main: amplificationBackpack.AmplificationBackpack
+description: A minecraft plugin of extra backpack
 depend: [ItemNBTAPI,LangUtils]
+author: MinecraftDawn
 
 commands:
   amplificationbackpack:
+    usage: /<command>
     aliases: ab
+    description: open extra backpack
+
   sortbackpack:
+    usage: /<command>
     aliases: sb
+    description: sort your backpack
