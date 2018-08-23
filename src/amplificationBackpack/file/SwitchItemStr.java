@@ -18,7 +18,7 @@ public class SwitchItemStr {
     //將物品轉換為字串形式
     public static String Item2Str(ItemStack item) {
         try {
-            //建立ByteArray及BukkitObject兩個輸出檔案流，並將物品寫出
+            //建立ByteArray、GZIP、BukkitObject三個輸出檔案流，並將物品寫出
             ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
             GZIPOutputStream gzipOutputStream = new GZIPOutputStream(byteOutStream);
             BukkitObjectOutputStream outStream = new BukkitObjectOutputStream(gzipOutputStream);
@@ -33,7 +33,7 @@ public class SwitchItemStr {
 
             //將CharArray轉換為String型態
             String str = new String(chars);
-            Bukkit.broadcastMessage(str.length()+"");//
+
             return str;
 
         } catch (IOException e) {
@@ -50,7 +50,7 @@ public class SwitchItemStr {
             //將CharArray以Base64解碼後轉換為ByteArray型態
             byte[] bytes = Base64Coder.decode(chars);
 
-            //建立ByteArray及BukkitObject兩個輸入檔案流，並將物品寫入
+            //建立ByteArray、GZIP、BukkitObject三個輸入檔案流，並將物品寫入
             ByteArrayInputStream byteInStream = new ByteArrayInputStream(bytes);
             GZIPInputStream gzipInputStream = new GZIPInputStream(byteInStream);
             BukkitObjectInputStream inStream = new BukkitObjectInputStream(gzipInputStream);
