@@ -39,5 +39,5 @@ public class AmplificationBackpack extends JavaPlugin {
         }
     }
 
-
+ 
 }
