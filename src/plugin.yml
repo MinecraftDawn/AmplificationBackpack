@@ -1,5 +1,5 @@
 name: AmplificationBackpack
-version: 1.1.0
+version: 1.2.0
 main: amplificationBackpack.AmplificationBackpack
 description: A minecraft plugin of extra backpack
 depend: [ItemNBTAPI,LangUtils]
