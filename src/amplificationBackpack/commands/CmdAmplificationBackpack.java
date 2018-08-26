@@ -1,14 +1,10 @@
 package amplificationBackpack.commands;
 
-import amplificationBackpack.AmplificationBackpack;
-import amplificationBackpack.Events.RegisterInListener;
 import amplificationBackpack.file.BackpackManager;
-import com.meowj.langutils.lang.LanguageHelper;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 public class CmdAmplificationBackpack implements CommandExecutor {
 
