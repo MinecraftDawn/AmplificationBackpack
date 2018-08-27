@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 處理背包檔案格式\
+ */
 public class BackpackManager {
 
     private static YMLManager yml = YMLManager.getInstance();
@@ -44,7 +47,7 @@ public class BackpackManager {
 
             //若該位置為空，清除檔案內容
             if (item == null) {
-                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i)),null);
+                data.set(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i)), null);
 
                 continue;
             }
@@ -84,7 +87,7 @@ public class BackpackManager {
 
         for (int i = 0; i < size; i++) {
             //若該資料不存在，則跳過
-            if(!data.isSet(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i)))){
+            if (!data.isSet(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i)))) {
                 continue;
             }
 

@@ -1,13 +1,15 @@
 package amplificationBackpack.Events;
 
 import amplificationBackpack.file.BackpackManager;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 
+/**
+ * 背包關閉的事件
+ */
 public class InventoryClose implements Listener {
 
     @EventHandler

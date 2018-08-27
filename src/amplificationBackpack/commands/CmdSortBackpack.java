@@ -14,6 +14,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * 整理包包
+ */
 public class CmdSortBackpack implements CommandExecutor {
 
     @Override

@@ -6,6 +6,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * 打開擴增背包
+ */
 public class CmdAmplificationBackpack implements CommandExecutor {
 
     @Override

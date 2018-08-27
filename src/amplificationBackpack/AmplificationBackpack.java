@@ -11,6 +11,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * @author MinecraftDawn
+ * 主要的Class，負責註冊事件、設定指令、關閉伺服器時的動作
+ */
 public class AmplificationBackpack extends JavaPlugin {
 
     //將此插件主Class給其他Class使用
@@ -39,5 +43,5 @@ public class AmplificationBackpack extends JavaPlugin {
         }
     }
 
- 
+
 }

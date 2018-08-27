@@ -13,8 +13,16 @@ import java.io.IOException;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
+/**
+ * 在物品及字串之中轉換
+ */
 public class SwitchItemStr {
 
+    /**
+     * 將物品轉換為字串
+     * @param item Minecraft內的物品
+     * @return 回傳出一個編碼且壓縮後的字串
+     */
     //將物品轉換為字串形式
     public static String Item2Str(ItemStack item) {
         try {
@@ -42,6 +50,11 @@ public class SwitchItemStr {
         }
     }
 
+    /**
+     * 將字串轉換為物品
+     * @param str 由Item2Str方法得到的字串
+     * @return 回傳一個物品物件
+     */
     //將字串轉換為Item形式
     public static ItemStack Str2Item(String str) {
         try {
