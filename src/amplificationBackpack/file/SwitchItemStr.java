@@ -20,11 +20,21 @@ public class SwitchItemStr {
 
     /**
      * 將物品轉換為字串
+     *
      * @param item Minecraft內的物品
      * @return 回傳出一個編碼且壓縮後的字串
      */
     //將物品轉換為字串形式
     public static String Item2Str(ItemStack item) {
+
+        ItemStack cloneItem = item.clone();
+
+        cloneItem.setAmount(1);
+
+        if (cloneItem.getType().equals(new ItemStack(cloneItem.getType(), 1))) {
+            return item.getType().toString();
+        }
+
         try {
             //建立ByteArray、GZIP、BukkitObject三個輸出檔案流，並將物品寫出
             ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
@@ -52,11 +62,19 @@ public class SwitchItemStr {
 
     /**
      * 將字串轉換為物品
+     *
      * @param str 由Item2Str方法得到的字串
      * @return 回傳一個物品物件
      */
     //將字串轉換為Item形式
-    public static ItemStack Str2Item(String str) {
+    public static ItemStack Str2Item(String str, int amount) {
+
+        if (Material.matchMaterial(str) != null) {
+            ItemStack item = new ItemStack(Material.getMaterial(str), amount);
+
+            return item;
+        }
+
         try {
             //將String轉換為CharArray型態
             char[] chars = str.toCharArray();
