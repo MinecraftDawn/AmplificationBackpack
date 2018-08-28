@@ -2,6 +2,7 @@ package amplificationBackpack.file;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.io.BukkitObjectInputStream;
 import org.bukkit.util.io.BukkitObjectOutputStream;
@@ -18,6 +19,8 @@ import java.util.zip.GZIPOutputStream;
  */
 public class SwitchItemStr {
 
+    private static YamlConfiguration data = YMLManager.getInstance().data;
+
     /**
      * 將物品轉換為字串
      * @param item Minecraft內的物品
@@ -25,6 +28,16 @@ public class SwitchItemStr {
      */
     //將物品轉換為字串形式
     public static String Item2Str(ItemStack item) {
+
+        ItemStack cloneItem = item.clone();
+
+        cloneItem.setAmount(1);
+
+        if(cloneItem.equals(new ItemStack(item.getType(),1))){
+
+            return item.getType().toString();
+        }
+
         try {
             //建立ByteArray、GZIP、BukkitObject三個輸出檔案流，並將物品寫出
             ByteArrayOutputStream byteOutStream = new ByteArrayOutputStream();
@@ -56,34 +69,40 @@ public class SwitchItemStr {
      * @return 回傳一個物品物件
      */
     //將字串轉換為Item形式
-    public static ItemStack Str2Item(String str) {
-        try {
-            //將String轉換為CharArray型態
-            char[] chars = str.toCharArray();
-            //將CharArray以Base64解碼後轉換為ByteArray型態
-            byte[] bytes = Base64Coder.decode(chars);
+    public static ItemStack Str2Item(String str,int amount) {
 
-            //建立ByteArray、GZIP、BukkitObject三個輸入檔案流，並將物品寫入
-            ByteArrayInputStream byteInStream = new ByteArrayInputStream(bytes);
-            GZIPInputStream gzipInputStream = new GZIPInputStream(byteInStream);
-            BukkitObjectInputStream inStream = new BukkitObjectInputStream(gzipInputStream);
-
-            //將檔案流以ItemStack方是讀入
-            ItemStack item = (ItemStack) inStream.readObject();
-
-            byteInStream.close();
-            inStream.close();
-
+        if (Material.matchMaterial(str) != null){
+            ItemStack item = new ItemStack(Material.getMaterial(str),amount);
             return item;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ItemStack(Material.AIR, 1);
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return new ItemStack(Material.AIR, 1);
         }
+
+            try {
+                //將String轉換為CharArray型態
+                char[] chars = str.toCharArray();
+                //將CharArray以Base64解碼後轉換為ByteArray型態
+                byte[] bytes = Base64Coder.decode(chars);
+
+                //建立ByteArray、GZIP、BukkitObject三個輸入檔案流，並將物品寫入
+                ByteArrayInputStream byteInStream = new ByteArrayInputStream(bytes);
+                GZIPInputStream gzipInputStream = new GZIPInputStream(byteInStream);
+                BukkitObjectInputStream inStream = new BukkitObjectInputStream(gzipInputStream);
+
+                //將檔案流以ItemStack方是讀入
+                ItemStack item = (ItemStack) inStream.readObject();
+
+                byteInStream.close();
+                inStream.close();
+
+                return item;
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                return new ItemStack(Material.AIR, 1);
+
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                return new ItemStack(Material.AIR, 1);
+            }
     }
 
 }

@@ -84,6 +84,7 @@ public class BackpackManager {
         int size = data.getInt(yml.str2DotStr(p.getUniqueId().toString(), "格數"));
 
         String str;
+        int amount;
 
         for (int i = 0; i < size; i++) {
             //若該資料不存在，則跳過
@@ -93,7 +94,8 @@ public class BackpackManager {
 
             //將文字轉換成物品，並放入儲存欄位
             str = data.getString(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "Item"));
-            inv.setItem(i, SwitchItemStr.Str2Item(str));
+            amount = data.getInt(yml.str2DotStr(p.getUniqueId().toString(), "物品", Integer.toString(i), "數量"),1);
+            inv.setItem(i, SwitchItemStr.Str2Item(str,amount));
         }
 
         return inv;
