@@ -1,6 +1,5 @@
 package amplificationBackpack.file;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.io.BukkitObjectInputStream;
@@ -31,7 +30,7 @@ public class SwitchItemStr {
 
         cloneItem.setAmount(1);
 
-        if (cloneItem.getType().equals(new ItemStack(cloneItem.getType(), 1))) {
+        if (cloneItem.equals(new ItemStack(cloneItem.getType(), 1))) {
             return item.getType().toString();
         }
 
@@ -63,7 +62,8 @@ public class SwitchItemStr {
     /**
      * 將字串轉換為物品
      *
-     * @param str 由Item2Str方法得到的字串
+     * @param str    由Item2Str方法得到的字串
+     * @param amount 物品數量
      * @return 回傳一個物品物件
      */
     //將字串轉換為Item形式
