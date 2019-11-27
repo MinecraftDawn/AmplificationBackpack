@@ -1,6 +1,5 @@
 package amplificationBackpack.file;
 
-import amplificationBackpack.AmplificationBackpack;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -9,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- *負責處理yml檔
+ * 負責處理yml檔
  */
 public class YMLManager {
 
@@ -23,7 +22,7 @@ public class YMLManager {
 
     //建構子(Constructor)，設定Backpack.yml檔案
     private YMLManager() {
-        plugin = AmplificationBackpack.plugin;
+        plugin = plugin;
 
         file = new File(plugin.getDataFolder(), "Backpack.yml");
 
@@ -40,6 +39,7 @@ public class YMLManager {
 
     /**
      * 單例模式，只產生一個實例，若其他Class需要使用yml，則需要取得此I實例
+     *
      * @return 回傳出一個YMLManager實例
      */
     //單例模式，只產生一個實例
@@ -55,6 +55,7 @@ public class YMLManager {
 
     /**
      * 重新讀取yml檔案
+     *
      * @return 是否成功讀取，成功為true，失敗為false
      */
     //讀取Backpack.yml檔案內容
@@ -72,6 +73,7 @@ public class YMLManager {
 
     /**
      * 儲存修改後的yml檔案
+     *
      * @return 是否成功儲存，成功為true，失敗為false
      */
     //儲存Backpack.yml檔案內容

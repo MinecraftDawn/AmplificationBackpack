@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="AmplificationBackpack:jar">
-    <output-path>$PROJECT_DIR$/../../BungeeCord-1.12.2/Server2/plugins</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts/AmplificationBackpack_jar</output-path>
     <root id="archive" name="AmplificationBackpack.jar">
       <element id="module-output" name="AmplificationBackpack" />
     </root>

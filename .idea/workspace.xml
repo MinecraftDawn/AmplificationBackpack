@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AmplificationBackpack:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4546d2b5-4238-4d1b-8200-4069be4b495a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_21_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_13_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_14_4_R0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_23.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/AmplificationBackpack_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/AmplificationBackpack_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AmplificationBackpack.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AmplificationBackpack.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Backpack.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Backpack.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/amplificationBackpack/AmplificationBackpack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/amplificationBackpack/AmplificationBackpack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/amplificationBackpack/Events/InventoryClose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/amplificationBackpack/Events/InventoryClose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/amplificationBackpack/Events/PlayerDeath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/amplificationBackpack/Events/PlayerDeath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/amplificationBackpack/commands/CmdAmplificationBackpack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/amplificationBackpack/commands/CmdAmplificationBackpack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/amplificationBackpack/commands/CmdSortBackpack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/amplificationBackpack/commands/CmdSortBackpack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/amplificationBackpack/file/BackpackManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/amplificationBackpack/file/BackpackManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/amplificationBackpack/file/SwitchItemStr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/amplificationBackpack/file/SwitchItemStr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/amplificationBackpack/file/YMLManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/amplificationBackpack/file/YMLManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="629bcb8431fc569ee235328d747de089df26d48d" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1UCQXLWnNGAKDnaPVbDVItz30T3" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../aa" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="B:\AmplificationBackpack\src\main\resources" />
+      <recent name="B:\AmplificationBackpack\aaa" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4546d2b5-4238-4d1b-8200-4069be4b495a" name="Default Changelist" comment="" />
+      <created>1574858135042</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574858135042</updated>
+      <workItem from="1574858136172" duration="3394000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

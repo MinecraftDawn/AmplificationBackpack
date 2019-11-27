@@ -14,7 +14,7 @@ public class InventoryClose implements Listener {
 
     @EventHandler
     public void onInventoryInteract(InventoryCloseEvent e) {
-        if (!e.getInventory().getName().equals("擴增背包")) return;
+        if(!e.getView().getTitle().equals("擴增背包")) return;
 
         Player p = (Player) e.getPlayer();
 

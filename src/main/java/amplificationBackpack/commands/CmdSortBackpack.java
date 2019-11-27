@@ -27,30 +27,25 @@ public class CmdSortBackpack implements CommandExecutor {
 
         Inventory inv = p.getInventory();
 
-        List<ItemStack> items = new ArrayList<>();
-
         for (int i = 9; i < 36; i++) {
-            if (inv.getItem(i) != null) {
-                items.add(inv.getItem(i));
-                Bukkit.broadcastMessage(inv.getItem(i).getDurability() + "");
-            }
+            ItemStack itemStack = inv.getItem(i);
+            if (itemStack == null) continue;
+
             inv.setItem(i, new ItemStack(Material.AIR, 1));
+            inv.addItem(itemStack);
         }
 
-        Collections.sort(items, new Comparator<ItemStack>() {
-            @Override
-            public int compare(ItemStack o1, ItemStack o2) {
-                if (o1.getDurability() + 0.0001 * o1.getTypeId() < o2.getDurability() + 0.0001 * o2.getTypeId()) {
-                    return -1;
-                } else {
-                    return 1;
-                }
-            }
-        });
+//        Collections.sort(items, new Comparator<ItemStack>() {
+//            @Override
+//            public int compare(ItemStack o1, ItemStack o2) {
+//                if (o1.getDurability() + 0.0001 * o1.getType().getId() < o2.getDurability() + 0.0001 * o2.getType().getId()) {
+//                    return -1;
+//                } else {
+//                    return 1;
+//                }
+//            }
+//        });
 
-        for (ItemStack item : items) {
-            inv.addItem(item);
-        }
 
         return true;
     }
